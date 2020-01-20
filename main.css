@@ -1,0 +1,1035 @@
+/*
+
+	Author: Kelly Ann McNamara;
+	Date Started: Novemeber 18th, 2016;
+	Class: Digital Design;
+	Professor: Joanna Kommala;
+	Project: Assignment 3 – Coding Portfolio Website;
+
+	_________________________________________________
+
+	INDEX
+	01. Attributes
+	02. ViewPort Boarder
+    00. Navigation
+	00. Typography
+    00. Intro
+	00. Portfolio
+	00. Selected Clients
+	00. Contact/Footer
+	00. Cases
+		00-0. Health Hack
+	00. Media Queries
+
+	_________________________________________________
+
+	COLOURS
+	purple: #8306e2;
+	white: #fff;
+	dark-grey: #25232e;
+	green: #56eda6;
+
+*/
+
+/* =============== 01. Attributes =============== */
+
+* {
+	margin: 0 auto;
+}
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+html {
+	font-size: 100%;
+	box-sizing: border-box;
+}
+body {
+	font-size: 62.5%;
+	margin: 0 auto;
+	font-family: "aaux-next",sans-serif;
+	text-rendering: geometricPrecision;
+}
+#main {
+	margin: 0 auto;
+	padding-top: 80px;
+	position: relative;
+}
+.wrapper {
+	max-width: 1025px;
+	padding: 0px 30px;
+}
+#section1 {
+	height: 90vh;
+	min-height: 600px;
+	/*padding-top: calc(50% - 375px);*/
+	display: flex;
+    align-items: center;
+}
+#section2 {
+    padding: 100px 0px;
+    background: #25232e;
+}
+#section3 {
+    padding: 100px 0px;
+    background: pink;
+}
+.col {
+	width: 100%;
+	max-width: 600px;
+	clear: both;
+}
+.col-2 {
+	width: 49.9%;
+	float: left;
+}
+.col-3 {
+	width: 32.9%;
+	float: left;
+}
+.clear {
+	float: none;
+	clear: both;
+}
+::selection {
+	background: #56eda6;
+}
+::-moz-selection {
+	background: #56eda6;
+}
+
+/* =============== 02. ViewPort Border =============== */
+
+#view-border__top, #view-border__right, #view-border__bottom, #view-border__left {
+	position: absolute;
+	background: #8306e2;
+	position: fixed;
+	z-index: 10000;
+}
+#view-border__top, #view-border__bottom {
+	height: 15px;
+	width: 100%;
+}
+#view-border__right, #view-border__left {
+	width: 15px;
+	height: 100%;
+}
+#view-border__top {
+	top: 0;
+	left: 0;
+}
+#view-border__right {
+	top: 0;
+	right: 0;
+}
+#view-border__bottom {
+	bottom: 0;
+	left: 0;
+}
+#view-border__left {
+	top: 0;
+	left: 0;
+}
+.border-break {
+	border-bottom: 15px solid #8306e2;
+}
+
+/* =============== 00. Typography =============== */
+
+.text-center {
+	text-align: center;
+}
+.white {
+	color: #fff;
+}
+.purple {
+	color: #8306e2;
+}
+.grey {
+	color: #25232e;
+}
+.green {
+	color: #56eda6;
+}
+h4 {
+	font-size: 1.8em;
+	color: #fff;
+    max-width: 85%;
+	line-height: 20px;
+    letter-spacing: 1.5px;
+	text-transform: uppercase;
+}
+p, li, #intro-h2 {
+    font-size: 1.6em;
+    font-weight: 400;
+	color: #8306e2;
+}
+ul li {
+	list-style: none;
+}
+
+/* =============== 00. Navigation =============== */
+
+#main-nav {
+	width: 100%;
+	padding: 10px 30px 5px;
+	clear: both;
+	position: fixed;
+	z-index: 1;
+}
+#nav-logo {
+	margin: 0;
+	color: #8306e2;
+	padding-top: 8px;
+	font-family: "eloquent-jf-pro";
+	font-size: 1.5em;
+	letter-spacing: 2px;
+	float: left;
+}
+#main-links {
+	float: right;
+}
+nav ul {
+	list-style: none;
+}
+nav ul li {
+	display: inline-block;
+	padding-left: 20px;
+	padding-top: 7px;
+}
+nav ul li a {
+	color: #8306e2;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 1em;
+}
+nav ul li a:hover, nav ul li a:active {
+	color: #4c5d72;
+}
+.nav-line {
+	padding: 0px 2px 3px 2px;
+	position: relative;
+	width: 100%;
+}
+.nav-line::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 2px;
+	width: 0;
+	-webkit-transition: width .5s ease-in-out;
+	-moz-transition: .5s ease-in-out;
+	-o-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+}
+.nav-line::after {
+	content: '';
+	position: absolute;
+	left: 100%;
+	height: 4px;
+	width: 0;
+}
+.nav-line:hover::before {
+	width: 100%;
+	background: #4c5d72;
+}
+.nav-line:hover::after {
+	width: 0;
+	background: transparent;
+}
+
+/* =============== 00. HamHam =============== */
+
+#hamham {
+  width: 60px;
+  height: 50px;
+  position: relative;
+  z-index: 5000;
+  margin-right: 0px;
+  -webkit-transition: .4s ease-in-out;
+  -moz-transition: .4s ease-in-out;
+  -o-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+#hamham span {
+  position: absolute;
+  margin-left: 11px;
+  -webkit-transition: .4s ease-in-out;
+  -moz-transition: .4s ease-in-out;
+  -o-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+  top: 15px;
+}
+.ham-span {
+	background: #8306e2;
+	height: 3px;
+    width: 80%;
+}
+#hamham span:nth-child(2), #hamham span:nth-child(3) {
+  top: 24px;
+  margin-left: 0px;
+}
+#hamham span:nth-child(4) {
+  top: 33px;
+  right: 0;
+}
+#hamham span:nth-child(1), #hamham span:nth-child(4) {
+  -webkit-transition: .65s ease-in-out;
+  -moz-transition: .65s ease-in-out;
+  -o-transition: .65s ease-in-out;
+  transition: .65s ease-in-out;
+}
+#hamham span:nth-child(5), #hamham span:nth-child(6) {
+  background: none;
+  top: 40px;
+  color: #8306e2;
+  font-family: sans-serif;
+}
+#hamham.open {
+	margin-right: 225px;
+}
+#hamham.open span:nth-child(1), #hamham.open span:nth-child(4) {
+   width: 0%;
+}
+#hamham.open span:nth-child(4) {
+  right: 0;
+}
+#hamham.open span:nth-child(2) {
+  transform: rotate(30deg);
+  transition-delay: .5s;
+}
+#hamham.open span:nth-child(3) {
+  transform: rotate(-30deg);
+  transition-delay: .5s;
+}
+
+/* =============== 00. Ham Toggle =============== */
+
+#ham-toggle {
+  position: absolute;
+  position: fixed;
+  z-index: 3000;
+  max-width: 250px;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background: #373540; /* #ae5dec */
+  /*border-left: solid 15px #8306e2;*/
+  display: flex;
+  align-items: center;
+  transition: 3s;
+}
+#ham-toggle ul {
+  list-style: none;
+  padding-left: 0px;
+}
+#ham-toggle ul li {
+  padding-bottom: 10px;
+}
+#ham-toggle ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#ham-toggle ul li a:hover, #ham-toggle ul li a:active, #ham-toggle ul li a:focus {
+	outline: none;
+	color: #56eda6;
+}
+#ham-toggle.close {
+  width: 0%;
+  /*border-left: solid 0px #8306e2;*/
+  transition: 2s;
+  transition-delay: -1.5s;
+}
+
+/* =============== 00. Intro =============== */
+
+#intro {
+	max-width: 537px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#call-out {
+	font-family: "eloquent-jf-pro";
+	font-size: 11em;
+	margin: 0;
+	font-weight: 100;
+	color: #8306e2;
+	max-width: 537px;
+	padding-top: 50px;
+	padding-bottom: 35px;
+	line-height: 100px;
+	text-transform: uppercase;
+}
+
+.intro-text{
+	max-width: 550px;
+	line-height: 1.25;
+	margin-left: 15px;
+	padding-bottom: 25px;
+}
+
+/* =============== 00. Portfolio =============== */
+.portfolio-view {
+	height: 90vh;
+	min-height: 733px;
+	display: flex;
+    align-items: center;
+}
+#portfolio1, #portfolio2, #portfolio3 {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    width: 100%;
+    min-height: 533px;
+	transition: 1s ease all;
+}
+#portfolio1 {
+    background-image: url("opt-imgs/folio-large-01.jpg");
+}
+#portfolio2 {
+    background-image: url("opt-imgs/folio-large-03.jpg");
+}
+#portfolio3 {
+	background-image: url("opt-imgs/folio-large-02.jpg");
+}
+.port-title {
+    height: 50%;
+}
+.port-text {
+    position: absolute;
+    height: 50%;
+    width: 33.333%;
+    bottom: 0px;
+    right: 8.333%;
+    padding: 15px;
+	transition: 1s ease all;
+}
+.port-text span {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 1px;
+    background: #fff;
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+.portfolio-body {
+    margin-top: 50px;
+}
+.portfolio-a {
+    margin-top: 15px;
+    position: relative;
+}
+.portfolio-a span {
+    width: 25%;
+    position: absolute;
+    top: 10px;
+    left: 0%;
+    transition: all 1s ease;
+}
+.portfolio-full-a {
+    position: absolute;;
+    width: 100%;
+    height: 100%;
+	border: solid 0px transparent;
+	top: 0px;
+	left: 0px;
+	transition: all 1s ease;
+}
+.portfolio-full-a:hover {
+	border: solid 10px #56eda6;
+}
+#folio-thumbs {
+	background: #25232e;
+    padding-bottom: 200px;
+}
+#folio-thumbs .col-3 {
+    margin-bottom: 16px;
+}
+.folio-thumb {
+	background-repeat: no-repeat;
+	background-size: cover;
+    width: 95%;
+    height: 206px;
+    position: relative;
+    margin-left: 15px;
+}
+#folio-thumb-1 {
+    background-image: url("opt-imgs/folio-thumbnail-01.jpg");
+}
+#folio-thumb-2 {
+    background-image: url("opt-imgs/folio-thumbnail-02.jpg");
+}
+#folio-thumb-3 {
+    background-image: url("opt-imgs/folio-thumbnail-03.jpg");
+}
+#folio-thumb-4 {
+    background-image: url("opt-imgs/folio-thumbnail-04.jpg");
+}
+#folio-thumb-5 {
+    background-image: url("opt-imgs/folio-thumbnail-05.jpg");
+}
+#folio-thumb-6 {
+    background-image: url("opt-imgs/folio-thumbnail-07.jpg");
+}
+
+.folio-thumb span {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.folio-thumb h4 {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+}
+.folio-thumb a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0px 0px 0px 0px #8306e2;
+    transition: 1s ease all;
+}
+.folio-thumb a:hover, .folio-thumb a:active, .folio-thumb a:focus {
+    outline: none;
+    box-shadow: inset 306px 0px 0px 0px #8306e2;
+}
+.folio-thumb p {
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 400;
+    font-style: italic;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+	/* =============== 04-1. Portfolio Typography =============== */
+
+	.portfolio-title {
+		font-family: "eloquent-jf-pro";
+		font-size: 7em;
+		font-weight: 100;
+		color: #fff;
+		max-width: 480px;
+		font-style: italic;
+		line-height: 80px;
+	    position: absolute;
+	    top: 15%;
+	    left: 8.333%;
+	}
+	.port-text h4 {
+		margin-left: 0;
+	}
+	.portfolio-a a {
+	    position: absolute;
+	    top: 5px;
+	    color: #fff;
+	    font-size: 1.3em;
+	    font-weight: 400;
+	    font-style: italic;
+	    text-decoration: none;
+	    padding-left: 25%;
+	    transition: all 1s ease;
+	}
+	.portfolio-a a:hover {
+	    color: #ff0;
+	}
+	.portfolio-a a:hover span{
+	    width: 50%;
+	    background: #ff0;
+	}
+
+	/* =============== 04-2. Portfolio Blue Boxes =============== */
+
+	.portfolio-blue-box-top, .portfolio-blue-box-bottom {
+	    display: inline-block;
+	    clear: both;
+	}
+	.portfolio-blue-box-top-1, .portfolio-blue-box-top-2, .portfolio-blue-box-top-3 {
+	    width: 8.333%;
+	    height: 50%;
+	    position: absolute;
+	    background: #8306e2;
+	}
+	.portfolio-blue-box-top-animation {
+		animation: blueBoxSlide 2s;
+	}
+	.portfolio-blue-box-top-1 {
+	    top: 0%;
+	    left: 0%;
+	}
+	.portfolio-blue-box-top-2 {
+	    top: 0%;
+	    left: 8.333%;
+	}
+	.portfolio-blue-box-top-3 {
+	    top: 0%;
+	    left: 16.666%;
+	}
+	.portfolio-blue-box-bottom-1, .portfolio-blue-box-bottom-2, .portfolio-blue-box-bottom-3, .portfolio-blue-box-bottom-4 {
+	    width: 8.333%;
+	    height: 50%;
+	    position: absolute;
+	    background: #8306e2;
+		top: 50%;
+		transition: 1s ease all;
+	}
+	.portfolio-blue-box-bottom-animation {
+		animation: blueBoxSlide2 3s;
+	}
+	.portfolio-blue-box-bottom-1 {
+	    right: 33.333%;
+
+	}
+	.portfolio-blue-box-bottom-2 {
+	    right: 24.999%;
+
+	}
+	.portfolio-blue-box-bottom-3 {
+	    right: 16.666%;
+
+	}
+	.portfolio-blue-box-bottom-4 {
+	    right: 8.333%;
+	    top: 50%;
+	}
+	.portfolio-blue-box-animation-bye {
+		width: 0%;
+		animation: blueBoxSlidebye 2s;
+	}
+	@keyframes blueBoxSlide {
+	    0% {
+	        width: 0%;
+	    }
+	    75% {
+	        width: 8.333%;
+	        background: #8306e2;
+	    }
+	}
+	@keyframes blueBoxSlide2 {
+	    0%, 25% {
+	        width: 0%;
+	    }
+	    100% {
+	        width: 8.333%;
+	        background: #8306e2;
+	    }
+	}
+	@keyframes blueBoxSlidebye {
+		0% {
+			width: 8.333%;
+	        background: #8306e2;
+	    }
+	    75% {
+	        width: 0%;
+	    }
+	}
+
+/* =============== 00. Selected Clients =============== */
+
+#selected-clients {
+	padding: 150px 0px 100px;
+}
+#selected-clients .col {
+	padding: 75px 0px;
+}
+#selected-clients ul {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0px 0px 0px 30px;
+}
+#selected-clients ul li {
+	padding-bottom: 10px;
+}
+
+/* =============== 00. Contact =============== */
+
+#contact {
+	background: #8306e2;
+	padding: 100px 0px 160px;
+}
+#contact h4 {
+	margin-left: 0px;
+}
+#contact a{
+	text-decoration: none;
+}
+#contact a:hover, #contact a:active, #contact a:focus {
+	outline: none;
+	color: #56eda6;
+}
+
+/* =============== 00. Cases =============== */
+#cases-intro {
+	width: 625px;
+}
+.intro-text-cases {
+	line-height: 1.25;
+	padding-bottom: 50px;
+}
+.view-project__btn {
+	background: #8306e2;
+	color: #fff;
+	padding: 10px 15px;
+	text-decoration: none;
+	font-size: 1.25em;
+	box-shadow: inset 0px 0px 0px 0px #25232e;
+	transition: 1s ease all;
+}
+.view-project__btn:hover {
+	box-shadow: inset 165px 0px 0px 0px #25232e;
+}
+#call-out-cases {
+	font-family: "eloquent-jf-pro";
+	font-size: 7em;
+	margin: 0;
+	font-weight: 100;
+	color: #8306e2;
+	padding-top: 200px;
+	padding-bottom: 35px;
+	line-height: 75px;
+	text-transform: uppercase;
+}
+#cases-design {
+	max-width: 625px;
+	margin-top: 250px;
+	margin-bottom: 150px;
+}
+.colour-col {
+	position: relative;
+}
+#logo-concept {
+	display: flex;
+	align-items: center;
+	margin-bottom: 100px;
+}
+.case-subtitle {
+	font-size: 2em;
+	text-transform: uppercase;
+	padding-bottom: 15px;
+	color: #8306e2;
+}
+#case-logo__p {
+	padding-left: 50px;
+}
+.cases-code {
+	background: #25232e;
+	margin-top: 200px;
+	padding: 150px 0px;
+}
+.cases-code .case-subtitle {
+	color: #fff;
+}
+.cases-code .portfolio-title {
+	position: relative;
+	max-width: none;
+	left: 0;
+}
+.case-snippet {
+	padding-top: 100px;
+}
+#selected-tech {
+	padding: 225px 0px 0px;
+}
+#selected-tech .col {
+	padding: 75px 0px;
+}
+#selected-tech ul {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0px 0px 0px 30px;
+}
+#selected-tech ul li {
+	padding-bottom: 10px;
+}
+/* =============== 000. Health Hack =============== */
+	#hh-read, #hh-blue, #hh-yellow, #hh-green, #hh-lightgrey, #hh-darkgrey {
+		width: 25px;
+		height: 25px;
+		background: #e04152;
+		border-radius: 13px 13px 13px 13px;
+		animation: colourGrow 3s ease infinite;
+		position: absolute;
+	}
+	#hh-blue {
+		background: #35adda;
+		animation-delay: .2s;
+		left: 20%;
+	}
+	#hh-yellow {
+		background: #ffcf48;
+		animation-delay: .4s;
+		left: 40%;
+	}
+	#hh-green {
+		background: #8cc34b;
+		animation-delay: .6s;
+		left: 60%;
+	}
+	#hh-lightgrey {
+		background: #ccd0d9;
+		animation-delay: .8s;
+		left: 80%;
+	}
+	#hh-darkgrey {
+		background: #434a54;
+		animation-delay: 1s;
+		left: 100%;
+	}
+	@keyframes colourGrow {
+		0%, 10% {
+			height: 25px;
+		}
+		45%, 60% {
+			height: 75px;
+			transform: translateY(-25px);
+		}
+		90%, 100% {
+			height: 25px;
+		}
+	}
+
+	/* ================== 00. JF =================== */
+	#img-placement {
+		padding-top: 100px;
+	}
+
+/* =============== 00. Media Quries =============== */
+/* =============== 960px =============== */
+@media only screen and (max-width: 960px) {
+	/* ========== Portfolio ==========*/
+	.portfolio-blue-box-bottom-1, .portfolio-blue-box-bottom-2, .portfolio-blue-box-bottom-3, .portfolio-blue-box-bottom-4 {
+		height: 60%;
+		top: 45%;
+	}
+	.port-text {
+		height: 55%;
+	}
+}
+/* =============== 710px =============== */
+@media only screen and (max-width: 710px) {
+	/* ========== Intro ==========*/
+	#intro {
+		max-width: 434px;
+	}
+	#call-out {
+		font-size: 9em;
+		line-height: 90px;
+	}
+	/* ========== Portfolio ==========*/
+	#portfolio1, #portfolio2, #portfolio3 {
+		min-height: 600px;
+	}
+	.port-text {
+		width: 42%;
+	}
+	.portfolio-blue-box-top-1, .portfolio-blue-box-top-2, .portfolio-blue-box-top-3, .portfolio-blue-box-bottom-1, .portfolio-blue-box-bottom-2, .portfolio-blue-box-bottom-3, .portfolio-blue-box-bottom-4 {
+		width: 17%;
+	}
+	.portfolio-blue-box-bottom-1, .portfolio-blue-box-bottom-2, .portfolio-blue-box-bottom-3, .portfolio-blue-box-bottom-4 {
+		height: 60%;
+		top: 40%;
+	}
+	.port-text {
+		height: 60%;
+	}
+	@keyframes blueBoxSlide {
+	    0% {
+	        width: 0%;
+	    }
+	    75% {
+	        width: 17%;
+	        background: #8306e2;
+	    }
+	}
+	@keyframes blueBoxSlide2 {
+	    0%, 25% {
+	        width: 0%;
+	    }
+	    100% {
+	        width: 17%;
+	        background: #8306e2;
+	    }
+	}
+	@keyframes blueBoxSlidebye {
+		0% {
+			width: 17%;
+	        background: #8306e2;
+	    }
+	    75% {
+	        width: 0%;
+	    }
+	}
+
+    #folio-thumbs .col-3 {
+        width: 49.999%;
+    }
+}
+/* =============== 525px =============== */
+@media only screen and (max-width: 525px) {
+	/* ========== Portfolio ========== */
+	.portfolio-blue-box-bottom-1, .portfolio-blue-box-bottom-2, .portfolio-blue-box-bottom-3, .portfolio-blue-box-bottom-4 {
+		height: 65%;
+		top: 40%;
+	}
+	.port-text {
+		height: 60%;
+	}
+    #folio-thumbs .col-3 {
+        width: 100%;
+    }
+	/* ========== Contact ========== */
+	#selected-clients ul {
+		padding: 0px;
+	}
+	.col-3 {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+/* =============== 505px =============== */
+@media only screen and (max-width: 505px) {
+	/* ========== HamHam ========== */
+	#nav-logo {
+		font-size: 1.25em;
+	}
+	#hamham {
+		width:40px;
+	}
+	#ham-toggle {
+		max-width: 190px;
+	}
+	#hamham.open {
+		margin-right: 157px;
+		margin-top: -3px;
+	}
+	/* ========== Intro ==========*/
+	#intro {
+		max-width: 345px;s
+	}
+	#call-out {
+		font-size: 7em;
+		line-height: 70px;
+	}
+	#intro-h2, .intro-text {
+		margin-left: 0px;
+	}
+	/* ========== Portfolio ==========*/
+	.portfolio-blue-box-top-1, .portfolio-blue-box-top-2, .portfolio-blue-box-top-3 {
+		top: 40%;
+        height: 60%;
+		width: 33.333%;
+	}
+	.portfolio-blue-box-top-2 {
+		left: 33.333%;
+	}
+	.portfolio-blue-box-top-3 {
+		left: 66.666%;
+	}
+	.portfolio-blue-box-bottom{
+		display: none;
+	}
+	.port-text {
+		height: 60%;
+		left: 0%;
+		margin-left: 10px;
+		width: 90%;
+	}
+	.portfolio-title {
+		font-size: 4.5em;
+		width: 85%;
+		line-height: 50px;
+	}
+	@keyframes blueBoxSlide {
+	    0% {
+	        width: 0%;
+	    }
+	    75% {
+	        width: 33.333%;
+	        background: #8306e2;
+	    }
+	}
+	@keyframes blueBoxSlide2 {
+	    0%, 25% {
+	        width: 0%;
+	    }
+	    100% {
+	        width: 33.333%;
+	        background: #8306e2;
+	    }
+	}
+	@keyframes blueBoxSlidebye {
+		0% {
+			width: 33.333%;
+	        background: #8306e2;
+	    }
+	    75% {
+	        width: 0%;
+	    }
+	}
+	/* ========== Contact ========== */
+	.col-2 {
+		width: 50%;
+		margin: 0 auto;
+	}
+}
+/* =============== 375px =============== */
+@media only screen and (max-width: 375px) {
+	/* ========== Intro ==========*/
+	#section1 {
+		margin-top: -25px !important;
+	}
+	#intro {
+		max-width: 300px;
+	}
+	#call-out {
+		font-size: 5.5em;
+		line-height: 50px;
+	}
+	/* ========== Contact ========== */
+	.col-2 {
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+/* =============== 325px =============== */
+@media only screen and (max-width: 325px) {
+	/* ========== HamHam ========== */
+	#hamham {
+		width:30px;
+	}
+	#ham-toggle {
+		max-width: 170px;
+	}
+	#hamham.open {
+		margin-right: 137px;
+		margin-top: -3px;
+	}
+	#ham-toggle ul {
+		margin-left: 17px;
+	}
+	/* ========= Intro ==========*/
+	#section1 {
+		margin-top: -75px !important;
+	}
+	/* ========== Portfolio ========== */
+	.portfolio-title {
+		font-size: 5em;
+		line-height: 50px;
+	}
+}
